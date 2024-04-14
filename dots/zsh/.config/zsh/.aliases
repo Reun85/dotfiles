@@ -1,0 +1,7 @@
+alias rr="ranger"
+alias n="nvim"
+alias sound="pavucontrol"
+alias bluetooth="blueman-manager"
+alias tidal="tidal-hifi-bin"
+alias wifi="nmtui"
+alias :q="exit"

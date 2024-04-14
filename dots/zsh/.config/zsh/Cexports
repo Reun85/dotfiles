@@ -1,0 +1,7 @@
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+alias CC="gcc"
+alias CXX="g++"
+export CC=gcc
+export CXX=g++
+export VCPKG_ROOT="/opt/vcpkg"
