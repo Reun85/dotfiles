@@ -1,0 +1,1 @@
+{AMD/AMD Radeon Graphics (renoir, LLVM 15.0.7, DRM 3.52, 6.4.12-arch1-1)/4.6 (Core Profile) Mesa 23.1.6}=SUPPORTED
