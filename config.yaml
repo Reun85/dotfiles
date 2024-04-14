@@ -1,0 +1,38 @@
+packages:
+  - git
+  - stow
+  - kitty
+  - neovim
+  - eww
+  - socat
+  - stow
+  - firefox
+  - tidal-hifi-bin
+  - vencord
+  - zsh
+dots_dir: "./dots"
+# download_optional: False
+# stow: False
+# update: False
+ignore_dots: # - dunst
+# - lazygit
+# - eww
+# - gtk
+# - nvim
+# - git
+# - btop
+# - xkb
+# - cava
+# - neofetch
+# - zathura
+# - zsh
+# - bash
+# - waybar
+# - bluetuith
+# - ranger
+# - rofi
+# - starship
+# - hypr
+# - kitty
+shell:
+  - "echo test $(pwd)"
