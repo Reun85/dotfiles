@@ -1,0 +1,4 @@
+[submodule "scripts/install/lib/pyyaml"]
+	path = scripts/install/lib/pyyaml
+	url = https://github.com/yaml/pyyaml
+	ignore = dirty
