@@ -1,0 +1,156 @@
+{
+  "height": 61, // Waybar height (to be removed for auto height)
+  "layer": "top", // Waybar at top layer
+  "position": "bottom",
+  "modules-left": [
+    "custom/launcher",
+    "cpu",
+    "memory",
+    "custom/weather",
+    "custom/prevmusic",
+    "custom/tidal-hifi",
+    "custom/nextmusic"
+  ],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery#icon",
+    "battery#value",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "all-outputs": true,
+    "active-only": true,
+    "format": "{name}"
+  },
+  "hyprland/language": {
+    "format-hu": "hu",
+    "format-en": "us"
+  },
+  "hyprland/window": {
+    "format": "{}"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%H:%M - %d %b %Y}",
+    "format-alt": "{:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": " {}%",
+    "max-length": 10,
+    "on-click": ""
+  },
+  "memory": {
+    "interval": 30,
+    "format-alt": " {}%",
+    "format": " {used:0.1f}GB",
+    "max-length": 10
+  },
+  "backlight": {
+    "device": "eDP-1",
+    "format": "{icon}",
+    "tooltip-format": "{percent}",
+    "format-icons": [
+      "󱩎 ",
+      "󱩏 ",
+      "󱩐 ",
+      "󱩑 ",
+      "󱩒 ",
+      "󱩓 ",
+      "󱩔 ",
+      "󱩕 ",
+      "󱩖 ",
+      "󰛨 "
+    ]
+  },
+  "network": {
+    /* "format-wifi": "直", */
+    "format-wifi": "{icon}",
+    "format-ethernet": " ",
+    "format-disconnected": "睊",
+    "tooltip-format": "{essid}",
+    "on-click": "nm-connection-editor",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "婢",
+    "format-icons": {
+      "default": ["", "", "墳"]
+    },
+    "on-click": "pavucontrol &"
+  },
+
+  "battery#value": {
+    "bat": "BAT0",
+    "adapter": "ADP0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "max-length": 20,
+    "format": "{capacity}% ",
+    "format-warning": "{capacity}% ",
+    "format-critical": "{capacity}% ",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+
+    "format-full": "100%"
+  },
+  "battery#icon": {
+    "bat": "BAT0",
+    "adapter": "ADP0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "max-length": 20,
+    "format": "{icon}",
+    "format-warning": "{icon}",
+    "format-critical": "{icon}",
+    "format-charging": "<span font-family='Font Awesome 6 Free'></span>",
+    "format-plugged": "ﮣ",
+    "full-at": 99,
+    "format-alt": "{icon} {time}",
+    "format-full": "ﮣ",
+    "format-icons": ["󱊡", "󱊢", "󱊣"]
+  },
+  "custom/weather": {
+    "exec": "python3 ~/.config/waybar/scripts/weather.py",
+    "restart-interval": 300,
+    "return-type": "json"
+  },
+  "custom/tidal-hifi": {
+    "exec": "python3 ~/.config/waybar/scripts/mediaplayer.py --player tidal-hifi",
+    "format": "{}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-down": "playerctl previous"
+  },
+  "custom/prevmusic": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "playerctl previous"
+  },
+  "custom/nextmusic": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "playerctl next"
+  },
+  "custom/launcher": {
+    "format": "",
+    "on-click": "rofi -show drun &"
+  }
+}
