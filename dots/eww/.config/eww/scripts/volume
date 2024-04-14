@@ -1,0 +1,120 @@
+#!/usr/bin/bash
+cd ~/.config/eww || exit
+
+volicons=("" "" "")
+XDG_CACHE_HOME="$HOME/.cache"
+date="$XDG_CACHE_HOME/eww/osd_vol.date"
+
+osd() {
+	if [ ! -f "$date" ]; then
+		mkdir -p "$XDG_CACHE_HOME/eww"
+	fi
+	currentdate=$(date +%s)
+	lastrun=$(cat "$date")
+	echo "$currentdate" >"$date"
+
+	# handle hiding
+	if [ $((currentdate - lastrun)) -ge 2 ]; then
+		scripts/toggle-osd-vol.sh --open
+	fi
+}
+
+# Close the menu
+osd_handler() {
+	lock=0
+	rundate=0
+	if [ ! -f "$date" ]; then
+		mkdir -p "$XDG_CACHE_HOME/eww"
+		echo 0 >"$date"
+	fi
+
+	while true; do
+		rundate=$(cat "$date")
+		currentdate=$(date +%s)
+
+		# handle hiding
+		if [ "$lock" -eq 1 ] && [ $((currentdate - rundate)) -ge 2 ]; then
+			scripts/toggle-osd-vol.sh --close >/dev/null
+			lock=0
+			sleep 1
+		elif [ "$lock" -eq 0 ] && [ $((currentdate - rundate)) -lt 2 ]; then
+			lock=1
+		fi
+		sleep 0.5
+	done
+}
+
+vol() {
+	pamixer --get-volume
+}
+
+ismuted() {
+	pamixer --get-mute
+}
+microphone() {
+	if [ "$(pamixer --default-source --get-mute)" = "true" ]; then
+		echo 0
+	else
+		pamixer --default-source --get-volume
+	fi
+
+}
+setvol() {
+	pamixer --set-volume "$1"
+	pamixer -u
+}
+setmute() {
+	pamixer -t
+}
+
+toprint() {
+	lvl=$(awk -v n="$(vol)" 'BEGIN{print int(n/34)}')
+	ismuted=$(ismuted)
+
+	if [ "$ismuted" = "false" ]; then
+		icon="${volicons[$lvl]}"
+	else
+		icon=""
+	fi
+	mic=$(microphone)
+	if [ "$mic" = 0 ]; then
+		micicon="\ue02b"
+	else
+		micicon="\ue029"
+	fi
+
+	echo '{"icon":"'"$icon"'","audio":"'"$ismuted"'","percent":'"$(vol)"',"micval":'"$mic"',"micicon":"'"$micicon"'"}'
+}
+
+if [ "$1" = "--once" ]; then
+	toprint
+	exit 0
+fi
+
+if [ "$1" = "mute" ]; then
+	setmute
+elif [ "$1" = "setvol" ]; then
+	if [ "$2" -lt 1 ] || [ "$2" -gt 100 ]; then
+		echo "Volume must be between 1 and 100"
+		exit 1
+	fi
+	setvol "$2"
+elif [ "$1" = "osd" ]; then
+	osd
+elif [ "$1" = "up" ]; then
+	newvol=$(($(vol) + 2))
+	setvol "$newvol"
+elif [ "$1" = "down" ]; then
+	newvol=$(($(vol) - 2))
+	setvol "$newvol"
+else
+	# initial values
+	toprint
+
+	osd_handler &
+	# event loop
+	pactl subscribe | rg --line-buffered "on sink" | while read -r _; do
+		toprint
+		osd
+	done
+fi

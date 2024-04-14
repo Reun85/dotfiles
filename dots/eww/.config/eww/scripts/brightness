@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+cd ~/.config/eww || exit
+
+icons=("" "" "")
+XDG_CACHE_HOME="$HOME/.cache"
+date="$XDG_CACHE_HOME/eww/osd_brightness.date"
+
+osd() {
+	lastrun=$(cat "$date")
+	currentdate=$(date +%s)
+	echo "$currentdate" >"$date"
+
+	# handle hiding
+	if [ $((currentdate - lastrun)) -ge 2 ]; then
+		scripts/toggle-osd-bright.sh --open
+	fi
+}
+# Close the menu
+osd_handler() {
+	lock=0
+	rundate=0
+	if [ ! -f "$date" ]; then
+		mkdir -p "$XDG_CACHE_HOME/eww"
+		echo 0 >"$date"
+	fi
+
+	while true; do
+		rundate=$(cat "$date")
+		currentdate=$(date +%s)
+
+		# handle hiding
+		if [ "$lock" -eq 1 ] && [ $((currentdate - rundate)) -ge 2 ]; then
+			scripts/toggle-osd-bright.sh --close >/dev/null
+			lock=0
+			sleep 1
+		elif [ "$lock" -eq 0 ] && [ $((currentdate - rundate)) -lt 2 ]; then
+			lock=1
+		fi
+		sleep 0.5
+	done
+}
+update() {
+	icon=${icons[$(awk -v n="$(brillo)" 'BEGIN{print int(n/34)}')]}
+	eww update brightness='{ "level": '"$(brillo)"', "icon": "'"$icon"'" }'
+}
+
+if [ "$1" = "" ]; then
+
+	icon=${icons[$(awk -v n="$(brillo)" 'BEGIN{print int(n/34)}')]}
+	echo '{ "level": '"$(brillo)"', "icon": "'"$icon"'" }'
+	osd_handler &
+
+	udevadm monitor | rg --line-buffered "backlight" | while read -r _; do
+		icon="${icons[$(awk -v n="$(brillo)" 'BEGIN{print int(n/34)}')]}"
+
+		echo '{ "level": '"$(brillo)"', "icon": "'"$icon"'" }'
+		osd
+	done
+elif [ "$1" = "osd" ]; then
+	osd
+elif [ "$1" = "up" ]; then
+	brillo -u 100000 -A 2
+elif [ "$1" = "down" ]; then
+	brillo -u 100000 -U 2
+elif [ "$1" = "-S" ]; then
+	brillo -u 100000 -S "$2"
+fi
