@@ -1,0 +1,35 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/reun/dots
+- /home/reun/dots/dots/ranger/.config/ranger/plugins/ranger_udisk_menu
+- /home/reun/all/elte/04/GPGPU/Assignment
+- /home/reun/all/dev/Programming/rust/graphics/zenith
+- /home/reun/quick/test/szofttech
+- /home/reun/all/dev/Programming/rust/mylib/buildermacro
+- /home/reun/all/dev/Programming/rust/mylib
+- /home/reun/all/dev/Programming/rust/comprehend
+- /mnt/win11/data/LINUX/Szofttech/BomberMan
+- /home/reun/all/dev/Programming/rust/random
+- /home/reun/all/dev/Programming/rust/RLcar
+- /home/reun/all/dev/Programming/Neovim/CopilotChat.nvim
+- /home/reun/all/dev/Programming/cpp/verseny
+- /home/reun/all/dev/Programming/rust/cppack/testfolder/test
+- /home/reun/all/dev/Programming/rust/cppack
+- /home/reun/quick/other_dots/Aylur
+- /home/reun/all/dev/Programming/Neovim/commandbrowser
+startuppopupversion: 5
+lastversion: 0.41.0
+customcommandshistory:
+- qQ
+- Q
+- q
+- ""
+- qQq
+- :q
+hidecommandlog: true
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
