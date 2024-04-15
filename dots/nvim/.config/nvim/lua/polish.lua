@@ -3,7 +3,6 @@
 -- fit in the normal config locations above can go here
 
 -- Set up custom filetypes
-local rustaceanvim = require "rustaceanvim"
 require("aerial").open()
 local wkl = require "which-key"
 
@@ -32,11 +31,13 @@ vim.api.nvim_create_autocmd({ "FileType", "VimEnter" }, {
         },
       }, { prefix = "<leader>", buffer = 0 })
     end
-    if fileTy == "cpp" or fileTy == "h" then
+    if fileTy == "cpp" or fileTy == "h" or fileTy == "hpp" or fileTy == "c" then
       wkl.register({
         k = {
           name = "cpp",
           o = { "<cmd>ClangdSwitchSourceHeader<cr>", "Header-Source" },
+          d = { "<cmd>CMakeDebug<cr>", "Start Debug" },
+          r = { "<cmd>CMakeRun<cr>", "Run" },
         },
       }, { prefix = "<leader>", buffer = 0 })
     end
