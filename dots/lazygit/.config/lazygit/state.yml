@@ -20,9 +20,9 @@ recentrepos:
 startuppopupversion: 5
 lastversion: 0.41.0
 customcommandshistory:
+- q
 - qQ
 - Q
-- q
 - ""
 - qQq
 - :q
