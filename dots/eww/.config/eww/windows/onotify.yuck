@@ -407,7 +407,7 @@
   :namespace "onotify"
   :geometry (geometry
     :x "0px"
-    :y "61px"
+    :y "0px"
     :width "0px"
     :height "1019px"
     :anchor "top right"

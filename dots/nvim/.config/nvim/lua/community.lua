@@ -11,23 +11,22 @@ return {
   -- ╰─────────────────────────────────────────────────────────╯
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cmake" },
-  { import = "astrocommunity.pack.docker" },
-  { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.toml" },
-  { import = "astrocommunity.pack.sql" },
+  -- { import = "astrocommunity.pack.toml" },
+  -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.pack.bash" },
   -- ╭─────────────────────────────────────────────────────────╮
   -- │                     simple plugins                      │
   -- ╰─────────────────────────────────────────────────────────╯
   -- Makes neo-tree unbarable
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
-  { import = "astrocommunity.code-runner.overseer-nvim" },
+  -- { import = "astrocommunity.code-runner.overseer-nvim" },
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.diagnostics.lsp_lines-nvim" },
-  { import = "astrocommunity.diagnostics.trouble-nvim" },
-  { import = "astrocommunity.scrolling.mini-animate" },
+  -- { import = "astrocommunity.diagnostics.trouble-nvim" },
+  -- { import = "astrocommunity.scrolling.mini-animate" },
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
@@ -43,9 +42,9 @@ return {
   -- highlight words under cursor
   -- { import = "astrocommunity/color/vim-highlighter" },
   -- markdown support
-  { import = "astrocommunity.color.headlines-nvim" },
+  -- { import = "astrocommunity.color.headlines-nvim" },
   -- ??
-  { import = "astrocommunity.motion.mini-surround" },
+  -- { import = "astrocommunity.motion.mini-surround" },
   -- make pretty boxes
   { import = "astrocommunity.editing-support.comment-box-nvim" },
   -- Regex explainer
@@ -57,7 +56,7 @@ return {
   -- CPP has its documentation on websites, bring that into neovim :)
   { import = "astrocommunity.editing-support.nvim-devdocs" },
   -- rainbow parenthesis
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+  -- { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   -- incremental selection
   -- { import = "astrocommunity/editing-support/wildfire-nvim" },
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },

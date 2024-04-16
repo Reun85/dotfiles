@@ -41,7 +41,6 @@ return {
   },
   {
     "https://github.com/nolanderc/glsl_analyzer",
-    lazy = false,
     -- config = function() require("mason-lspconfig").glsl_analyzer.setup { filetypes = { "glsl", "vert", "frag" } } end,
   },
 

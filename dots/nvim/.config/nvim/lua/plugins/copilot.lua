@@ -65,6 +65,7 @@ return {
 
     -- path = "~/all/dev/Programming/Neovim/CopilotChat.nvim",
     opts = {
+
       debug = true,
       mode = "split",
       prompts = {

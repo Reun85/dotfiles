@@ -81,7 +81,7 @@
                   :text {mname.title == '' ? '' : mname.title}
                 )
                 (revealer
-                  :transition "slidedown"
+                  :transition "slideup"
                   :reveal "${mname.artist != ''}"
                   :duration "20ms"
                   (label

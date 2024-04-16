@@ -978,8 +978,8 @@
   :namespace "osettings"
   :geometry (geometry
     :x "0px"
-    :y "61px"
-    :height "1019px"
+    :y "0px"
+    :height "1000px"
     :anchor "top left"
   )
   (osettings)
