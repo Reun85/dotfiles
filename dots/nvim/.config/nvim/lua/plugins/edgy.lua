@@ -2,22 +2,10 @@ return {
   --- @type LazyPlugin
   {
     "folke/edgy.nvim",
-    dependencies = {
-      {
-        "AstroNvim/astrocore",
-        opts = {
-          mappings = {
-            n = {
-              ["<Leader>F"] = { function() require("edgy").toggle() end, desc = "Toggle Sidebars" },
-              ["<Leader>f"] = { function() require("edgy").select() end, desc = "Pick Sidebar" },
-            },
-          },
-        },
-      },
-    },
     --- @type Edgy.Config
     opts = {
       exit_when_last = true,
+      -- animate = {},
       bottom = {
         { ft = "qf", title = "QuickFix" },
         {

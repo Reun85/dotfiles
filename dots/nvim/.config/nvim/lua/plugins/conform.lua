@@ -9,6 +9,7 @@ return {
       { "williamboman/mason.nvim", optional = true },
       {
         "AstroNvim/astrocore",
+        --- @type AstroCoreOpts
         opts = {
           options = { opt = { formatexpr = "v:lua.require'conform'.formatexpr()" } },
           commands = {
@@ -68,13 +69,14 @@ return {
         if autoformat == nil then autoformat = vim.g.autoformat end
         if autoformat then return { timeout_ms = 500, lsp_fallback = true } end
       end,
-      exclusive=true,
-      dry_run=true,
+      exclusive = true,
+      dry_run = true,
 
-        formatters_by_ft = {
-          cpp = { "clang-format" },
-          -- Add other file types and formatters as needed
-        },
-        },
+      formatters_by_ft = {
+
+        cpp = { "clang-format" },
+        -- Add other file types and formatters as needed
+      },
+    },
   },
 }

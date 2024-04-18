@@ -7,6 +7,9 @@ local config = {
 	-- font = wezterm.font("Cica"),
 	-- font_size = 10.0,
 	font = wezterm.font("JetBrains Mono Nerd Font", { weight = 600 }),
+
+	-- font = wezterm.font("Fira Code", { weight = Nerd Font 600 }),
+	-- font = wezterm.font("Fira Code"),
 	font_size = 12,
 	-- cell_width = 1.1,
 	-- line_height = 1.1,

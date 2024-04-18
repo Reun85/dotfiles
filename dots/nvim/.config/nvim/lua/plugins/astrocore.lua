@@ -32,14 +32,19 @@ return {
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        wrap = true, -- sets vim.opt.wrap
+        wrap = false, -- sets vim.opt.wrap
         list = true, -- show whitespace characters
         listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         showbreak = "↪ ",
         showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
         conceallevel = 2,
+        guifont = "JetBrainsMono Nerd Font:h12",
       },
       g = { -- vim.g.<key>
+        neovide_transparency = 1.0,
+        transparency = 1.0,
+        neovide_font = "JetBrains Mono Nerd Font",
+        neovide_font_size = 9,
         rustaceanvim = {
           tools = {
             hover_actions = { auto_focus = true },
@@ -70,7 +75,7 @@ return {
         n = { utils.better_search "n", desc = "Next search" },
         N = { utils.better_search "N", desc = "Previous search" },
         -- better increment/decrement
-        ["-"] = { "<c-x>", desc = "Descrement number" },
+        ["-"] = { "<c-x>", desc = "Decrement number" },
         ["+"] = { "<c-a>", desc = "Increment number" },
         -- resize with arrows
         ["<Up>"] = { function() require("smart-splits").resize_up(2) end, desc = "Resize split up" },
@@ -81,7 +86,7 @@ return {
           function() require("telescope").extensions.live_grep_args.live_grep_args() end,
           desc = "Find words (args)",
         },
-        ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
+        -- ["<leader>fB"] = { "<cmd>Telescope bibtex<cr>", desc = "Find BibTeX" },
         ["<leader>fe"] = { "<cmd>Telescope file_browser<cr>", desc = "File explorer" },
         ["<leader>fp"] = { function() require("telescope").extensions.projects.projects {} end, desc = "Find projects" },
         ["<leader>fT"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODOs" },
@@ -90,7 +95,6 @@ return {
         ["<leader>b"] = { name = "Buffers" },
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-        ["<leader>k"] = { name = "rust" },
         ["<leader>j"] = {
           name = "Misc",
         },
@@ -174,7 +178,7 @@ return {
       o = {
         -- line text-objects
         ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
-        ["al"] = { ":normal val<cr>", desc = "Around line text object" },
+        ["al"] = { ":normal val<cr>", desc = "around line text object" },
       },
     },
   },

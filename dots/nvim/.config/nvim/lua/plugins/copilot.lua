@@ -1,9 +1,9 @@
 return {
 
-  { import = "astrocommunity.completion.copilot-lua" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "zbirenbaum/copilot.lua" },
+    event = "User AstroFile",
     opts = function(_, opts)
       local cmp, copilot = require "cmp", require "copilot.suggestion"
       local snip_status_ok, luasnip = pcall(require, "luasnip")
@@ -26,6 +26,8 @@ return {
           fallback()
         end
       end, { "i", "s" })
+
+      opts.suggestion = { auto_trigger = true, debounce = 150 }
 
       opts.mapping["<C-x>"] = cmp.mapping(function()
         if copilot.is_visible() then copilot.next() end
@@ -61,9 +63,7 @@ return {
   {
     dependencies = { "zbirenbaum/copilot.lua" },
     "jellydn/CopilotChat.nvim",
-    -- "Reun85/CopilotChat.nvim",
 
-    -- path = "~/all/dev/Programming/Neovim/CopilotChat.nvim",
     opts = {
 
       debug = true,

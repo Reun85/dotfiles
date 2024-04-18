@@ -142,6 +142,6 @@ export RUSTUP_HOME="$HOME/langs/.rustup"
 eval "$(starship init zsh)"
 export VISUAL='nvim'
 export EDITOR='nvim'
-export TERMINAL='kitty'
+export TERMINAL='wezterm'
 export BROWSER='firefox'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|reboot|history|cd -|cd ..|:q|.q|poweroff|:w|:q!)"
