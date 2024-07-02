@@ -39,10 +39,7 @@ return {
     "elkowar/yuck.vim",
     ft = "yuck",
   },
-  {
-    "https://github.com/nolanderc/glsl_analyzer",
-    -- config = function() require("mason-lspconfig").glsl_analyzer.setup { filetypes = { "glsl", "vert", "frag" } } end,
-  },
+  { "petRUShka/vim-opencl" },
 
   { "max397574/better-escape.nvim", enabled = false },
 

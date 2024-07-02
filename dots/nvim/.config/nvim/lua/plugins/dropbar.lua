@@ -1,8 +1,10 @@
 --- @type LazySpec
 return {
   {
-    "Bekaboo/dropbar.nvim",
+    "https://github.com/Bekaboo/dropbar.nvim",
+    -- "Bekaboo/dropbar.nvim",
     event = "UIEnter",
+    --- @type dropbar_configs_t
     opts = {},
     dependencies = {
       {

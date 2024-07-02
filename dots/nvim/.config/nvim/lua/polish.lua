@@ -60,3 +60,13 @@ require("telescope").setup {
     },
   },
 }
+
+-- local lspconfig = require "astrolsp"
+--
+-- -- Configure the opencl-language-server
+-- lspconfig.opencl_ls.setup {
+--   cmd = { "opencl-language-server" },
+--   filetypes = { "opencl" },
+--   root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+--   settings = {},
+-- }

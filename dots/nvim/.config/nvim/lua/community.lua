@@ -10,6 +10,7 @@ return {
   -- │                          Packs                          │
   -- ╰─────────────────────────────────────────────────────────╯
   -- { import = "astrocommunity.pack.docker" },
+  -- { import = "astrocommunity.pack.typescript" },
   -- { import = "astrocommunity.pack.toml" },
   -- { import = "astrocommunity.pack.sql" },
   -- ╭─────────────────────────────────────────────────────────╮
